@@ -28,8 +28,8 @@ module Passwordless
     private
 
     def set_defaults
-      self.expires_at ||= 1.year.from_now
-      self.timeout_at ||= 1.hour.from_now
+      self.expires_at ||= 3.year.from_now
+      self.timeout_at ||= 3.year.from_now
       self.token ||= loop do
         token = Passwordless.token_generator.call(self)
         break token unless Session.find_by(token: token)
