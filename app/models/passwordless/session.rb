@@ -18,7 +18,7 @@ module Passwordless
     before_validation :set_defaults
 
     scope :valid, lambda {
-      where('timeout_at > ?', Time.current).or.where('timeout_at <= ?', Time.current)
+      where('timeout_at > ?', Time.current)
     }
 
     def expired?
