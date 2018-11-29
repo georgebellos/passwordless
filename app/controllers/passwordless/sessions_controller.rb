@@ -55,7 +55,7 @@ module Passwordless
       if redirect_enabled && destination
         redirect_to destination
       else
-        redirect_to main_app.root_path
+        redirect_to '/participation/account/edit'
       end
     rescue ExpiredSessionError
       flash[:error] = I18n.t('.passwordless.sessions.create.session_expired')
